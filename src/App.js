@@ -1,6 +1,7 @@
 import './App.css';
-import { createNote, toggleImportanceOf } from './Reducers/reducers.js'
+
 import { useSelector, useDispatch } from 'react-redux'
+import {newNote, toggleImportanceOf} from './Reducers/noteReducer.js'
 
 const App = () => {
 
@@ -9,9 +10,14 @@ const App = () => {
 
   const addNote = (event) => {
     event.preventDefault()
-    const content = event.target.note.value
-    event.target.note.value = ''
-    dispatch(createNote(content))
+    
+    const note ={
+      content: event.target.note.value,
+      important: Math.random() > 0.5,
+      id: notes.length + 1
+    }
+
+    dispatch(newNote(note))
   }
 
   const toggleImportance = (id) => {
@@ -30,7 +36,7 @@ const App = () => {
             key={note.id} 
             onClick={() => toggleImportance(note.id)}
           >
-            {note.content} <strong>{note.important ? 'important' : ''}</strong>
+            {note.content} <strong>{note.important ? 'important' : 'not important'}</strong>
           </li>
         )}
       </ul>

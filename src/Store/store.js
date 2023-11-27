@@ -1,6 +1,6 @@
 
 import { configureStore } from "@reduxjs/toolkit";
-import { noteReducer } from "../Reducers/reducers.js";
+import rootReducer from "../Reducers/rootReducer.js";
 
 const state = {
   notes : [{
@@ -15,12 +15,16 @@ const state = {
   }],
 }
 
-const store = configureStore(
-  { reducer: noteReducer }
-);
+const store = configureStore({ 
+  reducer: rootReducer, 
+  devTools: process.env.NODE_ENV !== 'production',
+  preloadedState: state,
+  enhancers: [],
+});
 
-store.subscribe(() => {
-    console.log(store.getState())
-})
+// store.subscribe(() => {
+//     console.log(store.getState())
+// })
+
 
 export default store;
