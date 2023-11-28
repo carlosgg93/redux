@@ -13,6 +13,7 @@ const state = {
     important: false,
     id: 2
   }],
+  filter: 'ALL'
 }
 
 const store = configureStore({ 
@@ -21,10 +22,5 @@ const store = configureStore({
   preloadedState: state,
   enhancers: [],
 });
-
-// store.subscribe(() => {
-//     console.log(store.getState())
-// })
-
 
 export default store;
