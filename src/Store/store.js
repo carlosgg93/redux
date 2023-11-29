@@ -3,16 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "../Reducers/rootReducer.js";
 
 const state = {
-  notes : [{
-    content: 'redux is easy',
-    important: true,
-    id: 1
-  },
-  {
-    content: 'the store is a globalized state',
-    important: false,
-    id: 2
-  }],
+  notes : [],
   filter: 'ALL'
 }
 

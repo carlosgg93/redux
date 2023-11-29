@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import {toggleImportanceOf} from '../Reducers/noteReducer.js'
+import {toggleImportanceOf, initializeNotes} from '../Reducers/noteReducer.js'
 import Filters from './Filters.js'
+import { getAllNotes } from '../Services/NoteService.js';
 
 const NotesList = () => {
   
   const dispatch = useDispatch()
+  
+  useEffect(() => {
+    getAllNotes()
+    .then(initialNotes => {
+      dispatch(initializeNotes(initialNotes))
+    })
+  }, [dispatch])
+  
   const notes = useSelector(state => state.notes)
 
   const toggleImportance = (id) => {

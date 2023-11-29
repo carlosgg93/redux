@@ -14,9 +14,9 @@ const Filters = () => {
 
   return (
     <div>
-      all <input type="radio" name="filter" onChange={e => handleChange()}/>
-      important <input type="radio" name="filter" />
-      nonimportant <input type="radio" name="filter" />
+      <input type="radio" name="filter" value="ALL" onChange={e => handleChange(e)} checked={filter === 'ALL'} /> all 
+      <input type="radio" name="filter" value="IMPORTANT" onChange={e => handleChange(e)} checked={filter === 'IMPORTANT'} /> important
+      <input type="radio" name="filter" value="NOT IMPORTANT" onChange={e => handleChange(e)} checked={filter === 'NOT IMPORTANT'} /> not important
     </div>
   )
 }
