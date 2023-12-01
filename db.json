@@ -1,12 +1,24 @@
 {
-  "notes" : [{
-    "content": "redux is easy",
-    "important":false,
-    "id": 1
-  },
-  {
-    "content" : "redux is hard",
-    "important": true,
-    "id": 2
-  }]
+  "notes": [
+    {
+      "content": "redux is easy",
+      "important": false,
+      "id": 1
+    },
+    {
+      "content": "redux is hard",
+      "important": true,
+      "id": 2
+    },
+    {
+      "content": "esta es una nueva nota",
+      "important": false,
+      "id": 3
+    },
+    {
+      "content": "aaaa",
+      "important": false,
+      "id": 4
+    }
+  ]
 }

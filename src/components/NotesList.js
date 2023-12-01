@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {toggleImportanceOf, initializeNotes} from '../Reducers/noteReducer.js'
 import Filters from './Filters.js'
-import { getAllNotes } from '../Services/NoteService.js';
+import { getAllNotes } from '../Services/noteService.js';
 
 const NotesList = () => {
   

@@ -1,20 +1,15 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { newNote } from "../Reducers/noteReducer.js"
+import { createNote } from "../Services/noteService.js"
 
 const AddNoteForm = () => {
 
   const dispatch = useDispatch()
-  const notes = useSelector(state => state.notes)
 
-  const addNote = (event) => {
+  const addNote = async (event) => {
     event.preventDefault()
-    
-    const note ={
-      content: event.target.note.value,
-      important: Math.random() > 0.5,
-      id: notes.length + 1
-    }
-
+    const content = event.target.note.value
+    const note = await createNote(content)
     dispatch(newNote(note))
   }
 
